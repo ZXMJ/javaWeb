@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="枫岩,CNLei.y.l@gmail.com"> 
+</head> 
+<body> 
+<select id="BigCate" name="BigCate" size="1" onchange="Redirect(this.options.selectedIndex)"> 
+<option value="">人物</option> 
+<option value="">地理</option> 
+<option value="">野生动物</option> 
+<option value="">科技</option> 
+<option value="">静物</option> 
+<option value="">设计</option> 
+<option value="">新闻</option> 
+<option value="">宠物</option> 
+<option value="">植物</option> 
+<option value="">娱乐</option> 
+<option value="">生活亮点</option> 
+<option value="">体育</option> 
+</select> 
+<select id="SmlCate" name="SmlCate" size="1"> 
+<option value="1">日常生活</option> 
+<option value="2">旅行</option> 
+<option value="3">聚会</option> 
+<option value="4">婚庆</option> 
+<option value="5">节日</option> 
+<option value="6">美女写真</option> 
+<option value="7">人体摄影</option> 
+<option value="8">网友自拍</option> 
+<option value="9">演艺明星</option> 
+<option value="10">体育明星</option> 
+<option value="11">政坛名人</option> 
+<option value="12">其它</option> 
+</select> 
+<script type="text/javascript"> 
+var groups = document.getElementById("BigCate").options.length; 
+var group = new Array(groups) 
+for (i = 0; i < groups; i ++) 
+group[i] = new Array() 
+
+group[0][0] = new Option("日常生活","1") 
+group[0][1] = new Option("旅行","2") 
+group[0][2] = new Option("聚会","3") 
+group[0][3] = new Option("婚庆","4") 
+group[0][4] = new Option("节日","5") 
+group[0][5] = new Option("美女写真","6") 
+group[0][6] = new Option("人体摄影","7") 
+group[0][7] = new Option("网友自拍","8") 
+group[0][8] = new Option("演艺明星","9") 
+group[0][9] = new Option("体育明星","10") 
+group[0][10] = new Option("政坛名人","11") 
+group[0][11] = new Option("其它","12") 
+
+group[1][0] = new Option("现代建筑","40") 
+group[1][1] = new Option("文化遗产","41") 
+group[1][2] = new Option("自然风景","42") 
+group[1][3] = new Option("其它","43") 
+
+group[2][0] = new Option("哺乳类","80") 
+group[2][1] = new Option("鸟类","81") 
+group[2][2] = new Option("鱼类","82") 
+group[2][3] = new Option("昆虫","83") 
+group[2][4] = new Option("其它","84") 
+
+group[3][0] = new Option("计算机","120") 
+group[3][1] = new Option("军事","121") 
+group[3][2] = new Option("太空","122") 
+group[3][3] = new Option("其它","123") 
+
+group[4][0] = new Option("邮票","160") 
+group[4][1] = new Option("钱币","161") 
+group[4][2] = new Option("饰物","162") 
+group[4][3] = new Option("玩具","163") 
+group[4][4] = new Option("模型","164") 
+group[4][5] = new Option("书法","165") 
+group[4][6] = new Option("绘画","166") 
+group[4][7] = new Option("篆刻","167") 
+group[4][8] = new Option("其它","168") 
+
+group[5][0] = new Option("CG","200") 
+group[5][1] = new Option("素材","201") 
+group[5][2] = new Option("其它","202") 
+
+group[6][0] = new Option("时政","240") 
+group[6][1] = new Option("文化","241") 
+group[6][2] = new Option("战争","242") 
+group[6][3] = new Option("社会","245") 
+group[6][4] = new Option("其它","246") 
+
+group[7][0] = new Option("狗","280") 
+group[7][1] = new Option("猫","281") 
+group[7][2] = new Option("金鱼","282") 
+group[7][3] = new Option("鸟","284") 
+group[7][4] = new Option("其它","285") 
+
+group[8][0] = new Option("花卉","320") 
+group[8][1] = new Option("树木","321") 
+group[8][2] = new Option("其它","322") 
+
+group[9][0] = new Option("搞笑","360") 
+group[9][1] = new Option("游戏","361") 
+group[9][2] = new Option("动漫","362") 
+group[9][3] = new Option("人体彩绘","363") 
+group[9][4] = new Option("电影海报","364") 
+group[9][5] = new Option("其它","365") 
+
+group[10][0] = new Option("家居","400") 
+group[10][1] = new Option("汽车","401") 
+group[10][2] = new Option("手机","402") 
+group[10][3] = new Option("数码产品","403") 
+group[10][4] = new Option("服饰","405") 
+group[10][5] = new Option("其它","404") 
+
+group[11][0] = new Option("奥运","440") 
+group[11][1] = new Option("篮球","441") 
+group[11][2] = new Option("足球","442") 
+group[11][3] = new Option("其它","443") 
+
+var temp = document.getElementById("SmlCate"); 
+function Redirect(x){ 
+ for (m = temp.options.length-1; m > 0; m --) 
+ temp.options[m] = null 
+ for (i = 0; i < group[x].length; i ++){ 
+ temp.options[i] = new Option(group[x][i].text,group[x][i].value); 
+ } 
+ temp.options[0].selected = true 
+} 
+//--> 
+</script> 
+
+</body> 
+</html> 
+

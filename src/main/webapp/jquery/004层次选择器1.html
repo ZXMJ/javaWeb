@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Untitled Document</title>
+		<style type="text/css">
+			div, span, p {
+			    width: 140px;
+			    height: 140px;
+			    margin: 5px;
+			    background: #aaa;
+			    border: #000 1px solid;
+			    float: left;
+			    font-size: 17px;
+			    font-family: Verdana;
+			}
+			
+			div.mini {
+			    width: 55px;
+			    height: 55px;
+			    background-color: #aaa;
+			    font-size: 12px;
+			}
+			
+			div.hide {
+			    display: none;
+			}			
+		</style>
+		<script type="text/javascript" src="scripts/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+		
+			$(function(){
+				
+				$("#btn1").click(function(){
+					//元素1 (空格)元素2  空格表示：元素1后面所有元素2类型的元素
+					$("body div").css("background", "#ffbbaa");
+				});
+				$("#btn2").click(function(){
+					//元素1>元素2 >表示:元素1后面所有子元素2
+					$("body > div").css("background", "#ffbbaa");
+					//$("body").children("div").css("background","red");
+				});
+				$("#btn3").click(function(){
+					//元素1+元素2 +表示元素1直接相邻的元素2类型的同辈元素(可能不存在，如果存在不包括它的子元素(如果存在))
+					$("#one + div").css("background", "#ffbbaa");
+					//$("#one").next("span").css("background","red");
+				});				
+				$("#btn4").click(function(){
+					//元素1~元素2 ~表示元素1后面所有兄弟级的元素2类型的元素(不包括元素2下的子元素(如果存在))
+					$("#two ~ div").css("background", "#ffbbaa");
+					//$("#two").nextAll("div").css("background","red");
+				});
+				$("#btn5").click(function(){
+					//$("元素1").sibling(元素2) .sibling()表示元素1所有的元素2类型的兄弟元素(不包括元素2下的子元素(如果存在))
+					$("#two").siblings("div").css("background", "#ffbbaa");
+				});
+				$("#btn6").click(function(){
+					//以下选择器选择的是近邻 #one 的 span 元素, 若该span
+					//和 #one 不相邻, 选择器无效. 
+					//$("#one + span").css("background", "#ffbbaa");
+					//$("元素1").nextAll("元素2:first") .nextAll()表示元素1后面所有的元素2类型的兄弟元素 PS:first表示第一个
+					$("#one").nextAll("span:first").css("background", "#ffbbaa");
+				});
+				$("#btn7").click(function(){
+					//$("元素1").prevAll("元素2:first") .prevAll()表示表示元素1之前所有的元素2类型的兄弟元素
+					$("#two").prevAll("div").css("background", "#ffbbaa");
+				});
+				
+			})
+		
+		</script>
+	</head>
+	<body>		
+		<input type="button" value="选择 body 内的所有 div 元素" id="btn1" />
+		<input type="button" value="在 body 内, 选择子元素是 div 的." id="btn2" />
+		<input type="button" value="选择 id 为 one 的下一个 div 元素" id="btn3" />
+		<input type="button" value="选择 id 为 two 的元素后面的所有 div 兄弟元素" id="btn4" />
+		<input type="button" value="选择 id 为 two 的元素所有 div 兄弟元素" id="btn5" />
+		<input type="button" value="选择 id 为 one 的下一个 span 元素" id="btn6" />
+		<input type="button" value="选择 id 为 two 的元素前边的所有的 div 兄弟元素" id="btn7" />
+		
+		<br><br>
+		<div class="one" id="one">
+			id 为 one,class 为 one 的div
+			<div class="mini">class为mini</div>
+		</div>
+		<div class="one" id="two" title="test">
+			id为two,class为one,title为test的div
+			<div class="mini" title="other">class为mini,title为other</div>
+			<div class="mini" title="test">class为mini,title为test</div>
+		</div>
+		<div class="one">
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini"></div>
+		</div>
+		<div class="one">
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini">class为mini</div>
+			<div class="mini" title="tesst">class为mini,title为tesst</div>
+		</div>
+		<div style="display:none;" class="none">style的display为"none"的div</div>
+		<div class="hide">class为"hide"的div</div>
+		<div>
+			包含input的type为"hidden"的div<input type="hidden" size="8">
+		</div>
+		<span id="span">^^span元素^^</span>
+		<span id="span">--span元素--</span>
+	</body>
+</html>
+

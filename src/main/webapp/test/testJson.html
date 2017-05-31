@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Json Test</title>
+<script type="text/javascript">
+	var json={
+		"name":"tashangguigu",
+		"age":12,
+		"address":{"city":"beijing","school":"尚硅谷"},
+		"teach":function(){
+			alert("好好学习，天天向上");
+		}
+	}
+	
+	var json2={
+		name:"tashangguigu",
+		age:12,
+		address:{city:"beijing",school:"尚硅谷"},
+		teach:function(){
+			alert("好好学习，天天向上");
+		}
+	}
+	alert(json.name);
+	alert(json.address.city);
+	json.teach();
+/* 	alert(json2.name);
+	alert(json2.address.city);
+	json2.teach(); */
+</script>
+</head>
+<body>
+
+</body>
+</html>

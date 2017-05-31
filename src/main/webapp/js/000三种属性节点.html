@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+
+<BODY>
+	<table>
+		<tr>
+			<td id="john" name="tdName">John..</td>
+			<td>Doe</td>
+			<td id="jack">Jack</td>
+		</tr>
+	</table>
+	<script>
+		<!-- 元素节点 -->
+		var ele = document.getElementById("john");
+		alert("元素节点类型: "+ele.nodeType);
+		alert("元素节点名字: "+ele.nodeName);
+		alert("元素节点值    : "+ele.nodeValue);
+		
+		<!-- 属性节点  -->
+		var attr = ele.getAttributeNode("name");	
+		alert("属性节点类型: "+attr.nodeType);
+		alert("属性节点名字: "+attr.nodeName);
+		alert("属性节点值    : "+attr.nodeValue);
+		
+		<!-- 文本节点 -->
+		 var wb = document.getElementsByName("tdName")[0].firstChild; 
+		 /*var wb = document.getElementsByTagName("td")[0].firstChild;
+		var wb = document.getElementById("john").firstChild;*/
+		alert("文本节点类型:  "+wb.nodeType);
+		alert("文本节点名字:  "+wb.nodeName);
+		alert("文本节点值    :  "+wb.nodeValue); 
+		
+	</script>
+</BODY>
+</html>
